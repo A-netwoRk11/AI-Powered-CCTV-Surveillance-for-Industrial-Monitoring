@@ -594,31 +594,7 @@ def download_analysis(dir_name):
         }), 500
 
 if __name__ == '__main__':
-    print("🚀 Starting AI-Powered CCTV Surveillance Web Interface...")
-    print(f"📂 Templates: {TEMPLATES_DIR}")
-    print(f"📂 Static: {STATIC_DIR}")
-    print(f"📂 Uploads: {UPLOADS_DIR}")
-    print(f"🤖 YOLO Model: {'✅ Loaded' if model else '❌ Failed'}")
-    print(f"🏷️  Labels: {len(labels)} classes loaded")
-    print("🌐 Server starting at http://localhost:5000")
-    
-    if check_dependencies():
-        threading.Thread(target=open_browser).start()
-    
-    signal.signal(signal.SIGINT, signal_handler)
-    signal.signal(signal.SIGTERM, signal_handler)
-    
-    # Get port from environment variable (Render provides this)
-    port = int(os.environ.get('PORT', 5000))
-    
-    # Force production mode if running on Render
-    is_render = os.environ.get('RENDER') or os.environ.get('RENDER_SERVICE_NAME')
-    debug_mode = not is_render
-    
-    if is_render:
-        print("🌐 Running on Render - production mode")
-    
-    app.run(debug=debug_mode, host='0.0.0.0', port=port)
+    app.run(host='0.0.0.0', port=8000)
 
 # WSGI entry point for Render deployment
 application = app
