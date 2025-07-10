@@ -1,0 +1,25 @@
+# Exclude large and unnecessary files from Docker image
+*.mp4
+*.avi
+*.mov
+*.mkv
+*.pt
+*.weights
+*.cfg
+*.jpg
+*.png
+*.jpeg
+*.bmp
+*.gif
+*.zip
+*.tar
+*.gz
+*.7z
+__pycache__/
+.git/
+.vscode/
+output/
+test_output/
+input/
+data/
+models/
