@@ -35,7 +35,7 @@ def initialize_surveillance_model():
         
         # Always use the lightweight downloadable model for reliability
         print("[INFO] Loading YOLOv8 nano model (will download if needed)...")
-        model = YOLO('yolov8n.pt')  # This will download if not present
+        model = YOLO('models/yolov8n.pt')  # This will download if not present
         print("[OK] YOLO model loaded successfully")
         
         # Try to load COCO names, fallback to default if not found
