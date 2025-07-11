@@ -97,7 +97,7 @@ def analyze_video():
         if model is None:
             print("⚠️ Model not loaded, trying to initialize...")
             try:
-                model = YOLO('yolov8n.pt')  # Download if needed
+                model = YOLO('models/yolov8n.pt')  # Download if needed
                 print("✅ Model initialized successfully")
             except Exception as e:
                 print(f"❌ Model initialization failed: {e}")
