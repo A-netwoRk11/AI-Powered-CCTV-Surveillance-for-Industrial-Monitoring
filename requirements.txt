@@ -1,9 +1,18 @@
+Flask
+gunicorn
+opencv-python-headless
+ultralytics
+Pillow
+numpy
+torch
+python-dotenv
+
 # Requirements for AI-Powered CCTV Surveillance (Python 3.12 compatible)
-Flask==3.0.0
-gunicorn==21.2.0
-opencv-python-headless==4.9.0.80
-ultralytics>=8.1.0,<9.0.0
-Pillow>=10.2.0,<11.0.0
-numpy>=1.26.0,<2.0.0
-torch>=2.2.0,<3.0.0
-python-dotenv>=1.0.0,<2.0.0
+#Flask==3.0.0
+#gunicorn==21.2.0
+#opencv-python-headless==4.9.0.80
+#ultralytics>=8.1.0,<9.0.0
+#Pillow>=10.2.0,<11.0.0
+#numpy>=1.26.0,<2.0.0
+#torch>=2.2.0,<3.0.0
+#python-dotenv>=1.0.0,<2.0.0
