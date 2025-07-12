@@ -1,0 +1,11 @@
+[phases.setup]
+nixPkgs = ["python312", "gcc", "libgl1-mesa-dev", "libglib2.0-0"]
+
+[phases.install]
+cmds = ["python -m pip install --upgrade pip", "pip install -r requirements.txt"]
+
+[phases.build]
+cmds = ["mkdir -p models output/screenshots output/uploads output/videos", "wget https://github.com/ultralytics/assets/releases/download/v0.0.0/yolov8n.pt -O models/yolov8n.pt"]
+
+[start]
+cmd = "cd src && gunicorn --bind 0.0.0.0:$PORT main:app"
