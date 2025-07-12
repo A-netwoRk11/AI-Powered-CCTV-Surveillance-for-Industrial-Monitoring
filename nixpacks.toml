@@ -1,32 +1,6 @@
-[phases.setup]
-nixPkgs = [
-    "python312",
-    "gcc",
-    "libgl1-mesa-dev",
-    "libglib2.0-0",
-    "libsm6",
-    "libxext6",
-    "libxrender1",
-    "wget"
-]
-
-[phases.install]
-aptPkgs = [
-    "libgl1-mesa-glx",
-    "libglib2.0-0",
-    "libsm6",
-    "libxext6",
-    "libxrender1"
-]
 cmds = [
     "python -m pip install --upgrade pip",
-    "pip install --no-cache-dir -r requirements.txt"
-]
-
-[phases.build]
-cmds = [
-    "mkdir -p models output/screenshots output/uploads output/videos",
-    "wget https://github.com/ultralytics/assets/releases/download/v0.0.0/yolov8n.pt -O models/yolov8n.pt"
+    "pip install -r requirements.txt"
 ]
 
 [start]
