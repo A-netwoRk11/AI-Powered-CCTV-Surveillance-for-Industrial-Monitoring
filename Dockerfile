@@ -40,16 +40,25 @@ COPY config/ ./config/
 COPY templates/ ./templates/
 COPY static/ ./static/
 
+# Install runtime dependencies
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    libgl1-mesa-glx \
+    libglib2.0-0 \
+    libsm6 \
+    libxext6 \
+    libxrender-dev \
+    && rm -rf /var/lib/apt/lists/*
+
 # Create necessary directories
 RUN mkdir -p models && \
     mkdir -p output/screenshots output/uploads output/videos
 
-# Download model at runtime
-ENV MODEL_PATH=/app/models/yolov8n.pt
-RUN python -c "from ultralytics import YOLO; YOLO('yolov8n.pt').save('$MODEL_PATH')"
+# Copy and set permissions for startup script
+COPY start.sh .
+RUN chmod +x start.sh
 
-# Expose port
+# Expose port (Railway will override this with $PORT)
 EXPOSE 5000
 
-# Set the entrypoint using gunicorn
-CMD ["gunicorn", "--bind", "0.0.0.0:$PORT", "--chdir", "src", "main:app"]
+# Set the entrypoint to our startup script
+CMD ["./start.sh"]
